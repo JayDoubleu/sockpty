@@ -1,7 +1,8 @@
 .ONESHELL:
 
 NAME=sockpty
-OUTPUTDIR=$(shell pwd)/bin
+PWD=$(shell pwd)
+OUTPUTDIR=$(PWD)/bin
 INSTALLDIR=$(HOME)/.local/bin
 
 all: build install
@@ -14,7 +15,7 @@ clean:
 	rm -f $(OUTPUTDIR)/${NAME}
 
 build-podman:
-	podman run --rm -it \
+	podman run --rm \
 		--volume $(PWD):/build:Z \
 		--workdir /build \
 		docker.io/library/golang:latest \
