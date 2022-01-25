@@ -24,6 +24,7 @@ install:
 	install -d $(INSTALLDIR)
 	install -m 700 $(OUTPUTDIR)/$(NAME)-server $(INSTALLDIR)
 	install -m 700 $(OUTPUTDIR)/$(NAME) $(INSTALLDIR)
+	install -d $(HOME)/.config/systemd/user/
 	cat <<EOF > $(HOME)/.config/systemd/user/$(NAME).service
 	[Unit]
 	Description=$(NAME) Service
